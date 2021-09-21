@@ -11,7 +11,7 @@ import T from 'prop-types'
 
 import { calcDims, readFile } from '../lib/utils'
 import CropPoints from '../lib/CropPoints'
-import { applyFilter, transform } from '../lib/imgManipulation'
+import { transform } from '../lib/imgManipulation'
 import CropPointsDelimiters from './CropPointsDelimiters'
 
 const buildImgContainerStyle = (previewDims) => ({
@@ -58,7 +58,7 @@ const Canvas = ({
           imageResizeRatio,
           setPreviewPaneDimensions
         )
-        applyFilter(cv, canvasRef.current, opts.filterCvParams)
+        // applyFilter(cv, canvasRef.current, opts.filterCvParams)
         if (opts.preview) {
           setMode('preview')
         }
@@ -235,6 +235,7 @@ const Canvas = ({
 
   return (
     <div
+      {...props}
       style={{
         position: 'relative',
         ...(previewDims && buildImgContainerStyle(previewDims))
