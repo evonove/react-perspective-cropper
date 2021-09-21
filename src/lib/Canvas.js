@@ -33,7 +33,8 @@ const Canvas = ({
   pointBorder,
   lineColor,
   maxWidth,
-  maxHeight
+  maxHeight,
+  ...props
 }) => {
   const { loaded: cvLoaded, cv } = useOpenCv()
   const canvasRef = useRef()
@@ -235,6 +236,7 @@ const Canvas = ({
 
   return (
     <div
+      {...props}
       style={{
         position: 'relative',
         ...(previewDims && buildImgContainerStyle(previewDims))
