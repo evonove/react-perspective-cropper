@@ -191,7 +191,7 @@ const Canvas = ({
   useEffect(() => {
     const bootstrap = async () => {
       const src = await readFile(image)
-      await createCanvas(src)
+      await createCanvas(src, rotationAngle)
       showPreview()
       detectContours()
       setLoading(false)
