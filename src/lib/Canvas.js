@@ -34,6 +34,7 @@ const Canvas = ({
   lineColor,
   maxWidth,
   maxHeight,
+  rotationAngle,
   ...props
 }) => {
   const { loaded: cvLoaded, cv } = useOpenCv()
@@ -94,7 +95,7 @@ const Canvas = ({
     imageResizeRatio = newPreviewDims.width / canvasRef.current.width
   }
 
-  const createCanvas = (src) => {
+  const createCanvas = (src, rotationAngle = 0) => {
     return new Promise((resolve, reject) => {
       const img = document.createElement('img')
       img.onload = async () => {
@@ -109,6 +110,7 @@ const Canvas = ({
         setPreviewPaneDimensions()
         resolve()
       }
+      img.style.transform = `rotate(${rotationAngle}deg)`
       img.src = src
     })
   }
