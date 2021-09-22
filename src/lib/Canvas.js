@@ -110,9 +110,8 @@ const Canvas = ({
         setPreviewPaneDimensions()
         resolve()
       }
-      console.log("ROTATION ANGLE: ", rotationAngle)
-      img.style.transform = `rotate(${rotationAngle}deg)`
       img.src = src
+      img.style.transform = `rotate(${rotationAngle}deg)`
     })
   }
 
