@@ -104,13 +104,13 @@ const Canvas = ({
         canvasRef.current.width = img.width
         canvasRef.current.height = img.height
         const ctx = canvasRef.current.getContext('2d')
-        ctx.rotate((rotationAngle * Math.PI) / 180)
         ctx.drawImage(img, 0, 0)
         imageDimensions.width = canvasRef.current.width
         imageDimensions.height = canvasRef.current.height
         setPreviewPaneDimensions()
         resolve()
       }
+      img.style.transform = `rotate(${rotationAngle}deg)`
       img.src = src
     })
   }
